@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login Form</title>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-material.js"></script>
+    <script src="Login.js"></script>
+    <link href="Login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="title"><h1>Sign in Form</h1></div>
+    <div class="container">
+        <div class="formBox" ng-controller="LoginController" ng-app="coupaTestApp">
+            <form ng-submit="Login()" name="loginForm" method="post" accept-charset="UTF-8">
+                <div class="loginFields">
+                    <p>Username</p>
+                    <input type="text" name="userid" ng-model="userid" placeholder="Username" required />
+                    <span style="color:red" ng-show="loginForm.userid.$dirty && loginForm.userid.$invalid">
+                        <span ng-show="loginForm.userid.$error.required">Username is required</span>
+                    </span>
+                </div>
+                <div class="loginFields">
+                    <p>Password</p>
+                    <input type="password" name="password" ng-model="password" placeholder="..........." required />
+                    <span style="color:red" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+                        <span ng-show="loginForm.password.$error.required">Password is required</span>
+                    </span>
+                </div>
+                <input type="submit" name="" value="Sign In" ng-disabled="loginForm.userid.$dirty && loginForm.userid.$invalid || loginForm.password.$dirty && loginForm.password.$invalid" />
+            </form>
+            <div id="result-popup">
+                <h2 id="resultmessage"></h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
